@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import Popup from '../popup/Popup';
+import Notes from '../notes/Notes';
 
 const Taskarea = () => {
   const [showPopup, setShowPopup] = useState(false);
   return (
     <div className='show-all-task min-w-lg relative'>
+      {/* notes */}
+      <div className='show-all-task-notes'>
+        <Notes />
+      </div>
+
       {showPopup && <Popup onClose={() => setShowPopup(false)} />}
       <button
         id='add-new-task'
