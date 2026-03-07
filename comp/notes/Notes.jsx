@@ -15,7 +15,6 @@ const Notes = () => {
   return (
     <div className='notes-area flex'>
       {notes.map((note) => (
-        // okay
         <div key={note._id} className='notes border' id={note._id}>
           <h3>{note.title}</h3>
           <p>{note.content.split(' ').slice(0, 5).join(' ')}...</p>
