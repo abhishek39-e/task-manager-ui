@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Popup from '../popup/Popup';
 import Notes from '../notes/Notes';
-import Calendar from '../calendar/calendar';
+import Calendar from '../calendar/NotesCalendar';
 import Tasknav from '../tasknav/TaskNav';
 
 const Taskarea = () => {
