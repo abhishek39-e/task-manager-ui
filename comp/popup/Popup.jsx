@@ -7,6 +7,19 @@ const Popup = ({ onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    const plainObject = Object.fromEntries(formData.entries());
+    const jsonString = JSON.stringify(plainObject);
+
+    fetch('https://task-mannager-api.vercel.app/api/notes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json', // Explicitly set content type for JSON
+      },
+      body: jsonString,
+    })
+      .then((response) => response.json())
+      .then((result) => console.log('Success:', result))
+      .catch((error) => console.error('Error:', error));
   };
   return (
     <div
@@ -68,14 +81,14 @@ const Popup = ({ onClose }) => {
           </div>
           {/* important */}
           <div className='flex justify-between'>
-            <label className='text-[#C9D1D9]' for='imp'>
+            <label className='text-[#C9D1D9]' for='important'>
               Mark Important:
             </label>
             <input
               type='checkbox'
-              id='imp'
+              id='important'
               onChange={handleChange}
-              name='imp'
+              name='important'
               className='text-[#C9D1D9]'
             ></input>
           </div>
