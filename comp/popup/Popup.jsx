@@ -1,26 +1,59 @@
 import React, { useState } from 'react';
 
 const Popup = ({ onClose }) => {
-  const [formData, setFormData] = useState({ title: '', des: '' });
-  const handleChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  // const [formData, setFormData] = useState({ title: '', des: '' });
+  // const handleChange = (e) =>
+  //   setFormData({ ...formData, [e.target.name]: e.target.value });
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(formData);
+  //   const plainObject = setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value,
+  //   });
+  //   const jsonString = JSON.stringify(plainObject);
+
+  //   fetch('https://task-mannager-api.vercel.app/api/notes', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json', // Explicitly set content type for JSON
+  //     },
+  //     body: jsonString,
+  //   })
+  //     .then((response) => response.json())
+  //     .then((result) => console.log('Success:', result))
+  //     .catch((error) => console.error('Error:', error));
+  // };
+  const [formData, setFormData] = useState({
+    title: '',
+    content: '',
+    date: '',
+    important: false,
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === 'checkbox' ? checked : value,
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-    const plainObject = Object.fromEntries(formData.entries());
-    const jsonString = JSON.stringify(plainObject);
 
     fetch('https://task-mannager-api.vercel.app/api/notes', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json', // Explicitly set content type for JSON
+        'Content-Type': 'application/json',
       },
-      body: jsonString,
+      body: JSON.stringify(formData),
     })
       .then((response) => response.json())
       .then((result) => console.log('Success:', result))
       .catch((error) => console.error('Error:', error));
   };
+
   return (
     <div
       onClick={onClose}
@@ -60,7 +93,7 @@ const Popup = ({ onClose }) => {
               Description
             </label>
             <textarea
-              name='des'
+              name='content'
               onChange={handleChange}
               placeholder='Enter task description...'
               className='bg-[#0D1117] border border-[#30363D] text-[#C9D1D9] placeholder-[#484F58] px-3 py-2 rounded focus:outline-none focus:border-[#58A6FF] transition-colors resize-none h-24'
