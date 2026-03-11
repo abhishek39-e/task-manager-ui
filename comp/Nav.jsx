@@ -1,14 +1,7 @@
 import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router';
 import Important from '../pages/important';
 // import './Nav.css';
 const Nav = () => {
-  const router = createBrowserRouter([
-    {
-      path: '/complete',
-      element: <Important />,
-    },
-  ]);
   const navcontent = ['dashboard', 'important', 'completed', 'do it now'];
   return (
     <div className='firstDiv min-w-48 flex justify-between items-center flex-col bg-[#161B22] text-white'>
@@ -26,7 +19,6 @@ const Nav = () => {
           </li>
         ))}
       </div>
-      <RouterProvider router={router} />
       <div className='h-10'></div>
     </div>
   );

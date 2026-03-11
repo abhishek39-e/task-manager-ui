@@ -1,9 +1,11 @@
 import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import { createRoot, BrowserRouter } from 'react-dom/client';
 import App from './App.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <createBrowserRouter>
+      <App />
+    </createBrowserRouter>
   </StrictMode>,
 );
