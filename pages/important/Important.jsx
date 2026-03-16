@@ -11,7 +11,6 @@ const Important = () => {
   const importantPosts = posts.filter((post) => post.important === true);
   return (
     <div className='notes-areaa flex gap-10 flex-col items-center py-10 w-screen bg-[#0D1117] text-white'>
-      hey i'm important
       {importantPosts.map((note) => (
         <div
           key={note._id}
