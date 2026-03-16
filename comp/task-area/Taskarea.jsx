@@ -13,7 +13,14 @@ const Taskarea = () => {
 
       <div className='main-container flex justify-around'>
         {/* notes */}
-        <div className='main border border-white'>
+        <div
+          className='relative px-10 main border-0 border-white h-100 overflow-y-scroll overflow-x-hidden scrollbar-thin 
+  [&::-webkit-scrollbar]:w-2
+  [&::-webkit-scrollbar-track]:bg-gray-800
+  [&::-webkit-scrollbar-thumb]:bg-gray-500
+  [&::-webkit-scrollbar-thumb]:rounded-full
+  hover:[&::-webkit-scrollbar-thumb]:bg-gray-400 '
+        >
           <div className='show-all-task-notes'>
             <Notes />
           </div>
@@ -22,7 +29,7 @@ const Taskarea = () => {
           <button
             id='add-new-task'
             onClick={() => setShowPopup(true)}
-            className='add-new-task  bg-[#238636] text-white flex justify-center items-center px-3 py-2 rounded-sm absolute bottom-10 right-5'
+            className='add-new-task  bg-[#238636] text-white flex justify-center items-center px-3 py-2 rounded-sm sticky bottom-10 left-99'
           >
             {' '}
             <i class='fa-solid fa-plus'></i> <p>Add New Task</p>
