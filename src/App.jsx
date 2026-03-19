@@ -3,7 +3,7 @@ import Nav from '../comp/Nav';
 import Taskarea from '../comp/task-area/Taskarea';
 import { Routes, Route } from 'react-router-dom';
 import Important from '../pages/important/Important';
-import Complete from '../pages/Complete/Complete';
+import Complete from '../pages/Complete/Complete.jsx';
 import Do_it_now from '../pages/doitnow/Do_it_now';
 
 function App() {
