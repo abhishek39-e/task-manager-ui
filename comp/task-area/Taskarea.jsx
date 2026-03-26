@@ -11,7 +11,7 @@ const Taskarea = () => {
       {/* task nav */}
       <Tasknav />
 
-      <div className='main-container flex justify-around'>
+      <div className='main-container flex justify-around max-lg:flex-col max-lg:items-center'>
         {/* notes */}
         <div
           className='relative px-10 main border-0 border-white h-100 overflow-y-scroll overflow-x-hidden scrollbar-thin 

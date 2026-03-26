@@ -7,7 +7,7 @@ const NotesCalendar = () => {
   const [date, setDate] = useState(new Date());
 
   return (
-    <div className='notes-calender'>
+    <div className='notes-calender max-lg:mt-[2rem] max-md:hidden'>
       <div className='calendar-container'>
         <Calendar onChange={setDate} value={date} />
       </div>
