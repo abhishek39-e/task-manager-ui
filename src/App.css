@@ -9,9 +9,25 @@
 .notes-areaa {
   overflow-y: scroll;
 }
-/* .firstDiv {
-  background: #afbbc9;
-} */
+
+.firstDiv {
+  @apply max-md:absolute  max-md:z-9 max-md:h-screen max-md:hidden;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.show {
+  display: flex;
+  animation: 0.3s ease-in-out fadeIn; /* Added 'fadeIn' name */
+}
 
 /* .add-new-task {
   background-color: #6a4ad3;
